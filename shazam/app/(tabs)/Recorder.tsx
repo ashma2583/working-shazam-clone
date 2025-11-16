@@ -66,8 +66,6 @@ export default function Recorder() {
   const [predictedConfidence, setPredictedConfidence] = useState<number | null>(
     null
   );
-  const [predictedArtist, setPredictedArtist] = useState<string | null>(null);
-  const [predictedImageURL, setPredictedImageURL] = useState<string | null>(null);
   const [predictedUrl, setPredictedUrl] = useState<string | null>(null);
   const [showPrediction, setShowPrediction] = useState(false);
   const [addingSong, setAddingSong] = useState(false);
@@ -147,9 +145,7 @@ export default function Recorder() {
           // TODO: Change important varaibles now that we have our prediction data
           // Hint: Some variables we might want to change are saving the predicted song,
           // the url of the associated youtube video, and some marker so our app knows to show the prediction
-          setPredictedImageURL(data.image || null);
-          setPredictedSong(data.title || "Unknown Song");
-          setPredictedArtist(data.artist || "Unkown Artist");
+          setPredictedSong(data.titles || "Unknown Song");
           setPredictedUrl(data.urls || null);
           setShowPrediction(true);
         })

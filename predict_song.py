@@ -110,15 +110,13 @@ def predict():
 
     # this line will be necessary for recorded files but not right now
     # os.remove("temp_audio_path")
-    song = db.retrieve_song(id[0])
+    
     # return the best prediction in a JSON object
     return jsonify({
         'best': scores[0][0],
         'confidence': float(scores[0][1]),
-        'urls': song['youtube_url'],
-        'title': song['title'],
-        'artist': song['artist'],
-        'image': song['artwork_url']
+        'urls': urls[0],
+        'titles': names[0]
     })
     
 # TODO: add an endpoint (@app.route) for adding a song to the database
